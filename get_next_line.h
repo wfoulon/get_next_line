@@ -13,7 +13,7 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 
+# define BUFF_SIZE 32
 # define EOL '\n'
 # include "libft.h"
 # include <sys/uio.h>
