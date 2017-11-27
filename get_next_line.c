@@ -50,7 +50,7 @@ char	*init_line(t_line *list, char **line)
 	{
 		if (txt[i] == EOL)
 		{
-			*line = ft_strsub(txt, 0, i)
+			*line = ft_strsub(txt, 0, i);
 			tmp = txt;
 			txt = ft_strdup(txt + (i + 1));
 			free(tmp);
