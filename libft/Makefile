@@ -11,76 +11,84 @@
 # **************************************************************************** #
 
 NAME			= 	libft.a
-HEADER			= 	libft.h
-SRC 			= 	ft_memset.c \
-					ft_bzero.c \
-					ft_memcpy.c \
-					ft_memccpy.c \
-					ft_memmove.c \
-					ft_memchr.c \
-					ft_memcmp.c \
-					ft_strlen.c \
-					ft_strdup.c \
-					ft_strcpy.c \
-					ft_strncpy.c \
-					ft_strcat.c \
-					ft_strncat.c \
-					ft_strlcat.c \
-					ft_strchr.c \
-					ft_strrchr.c \
-					ft_strstr.c \
-					ft_strnstr.c \
-					ft_strcmp.c \
-					ft_strncmp.c \
-					ft_atoi.c \
-					ft_isalpha.c \
-					ft_isdigit.c \
-					ft_isalnum.c \
-					ft_isascii.c \
-					ft_isprint.c \
-					ft_toupper.c \
-					ft_tolower.c \
-					ft_memalloc.c \
-					ft_memdel.c \
-					ft_strnew.c \
-					ft_strdel.c \
-					ft_strclr.c \
-					ft_striter.c \
-					ft_striteri.c \
-					ft_strmap.c \
-					ft_strmapi.c \
-					ft_strequ.c \
-					ft_strnequ.c \
-					ft_strsub.c \
-					ft_strjoin.c \
-					ft_strtrim.c \
-					ft_putchar.c \
-					ft_putstr.c \
-					ft_putendl.c \
-					ft_putnbr.c \
-					ft_putchar_fd.c \
-					ft_putstr_fd.c \
-					ft_putendl_fd.c \
-					ft_putnbr_fd.c \
-					ft_itoa.c \
-					ft_strsplit.c \
-					ft_isspace.c \
-					ft_swap.c \
-					ft_strrev.c \
-					ft_power.c \
-					ft_factorial.c \
-					ft_lstnew.c \
-					ft_lstadd.c \
-					ft_lstiter.c \
-					ft_lstmap.c \
-					ft_lstdel.c \
-					ft_lstdelone.c
-OBJ 			=	$(SRC:.c=.o)
 
-all : $(NAME)
+SRC 			= 	SRCS/ft_memset.c \
+					SRCS/ft_bzero.c \
+					SRCS/ft_memcpy.c \
+					SRCS/ft_memccpy.c \
+					SRCS/ft_memmove.c \
+					SRCS/ft_memchr.c \
+					SRCS/ft_memcmp.c \
+					SRCS/ft_strlen.c \
+					SRCS/ft_strdup.c \
+					SRCS/ft_strcpy.c \
+					SRCS/ft_strncpy.c \
+					SRCS/ft_strcat.c \
+					SRCS/ft_strncat.c \
+					SRCS/ft_strlcat.c \
+					SRCS/ft_strchr.c \
+					SRCS/ft_strrchr.c \
+					SRCS/ft_strstr.c \
+					SRCS/ft_strnstr.c \
+					SRCS/ft_strcmp.c \
+					SRCS/ft_strncmp.c \
+					SRCS/ft_atoi.c \
+					SRCS/ft_isalpha.c \
+					SRCS/ft_isdigit.c \
+					SRCS/ft_isalnum.c \
+					SRCS/ft_isascii.c \
+					SRCS/ft_isprint.c \
+					SRCS/ft_toupper.c \
+					SRCS/ft_tolower.c \
+					SRCS/ft_memalloc.c \
+					SRCS/ft_memdel.c \
+					SRCS/ft_strnew.c \
+					SRCS/ft_strdel.c \
+					SRCS/ft_strclr.c \
+					SRCS/ft_striter.c \
+					SRCS/ft_striteri.c \
+					SRCS/ft_strmap.c \
+					SRCS/ft_strmapi.c \
+					SRCS/ft_strequ.c \
+					SRCS/ft_strnequ.c \
+					SRCS/ft_strsub.c \
+					SRCS/ft_strjoin.c \
+					SRCS/ft_strtrim.c \
+					SRCS/ft_putchar.c \
+					SRCS/ft_putstr.c \
+					SRCS/ft_putendl.c \
+					SRCS/ft_putnbr.c \
+					SRCS/ft_putchar_fd.c \
+					SRCS/ft_putstr_fd.c \
+					SRCS/ft_putendl_fd.c \
+					SRCS/ft_putnbr_fd.c \
+					SRCS/ft_itoa.c \
+					SRCS/ft_strsplit.c \
+					SRCS/ft_isspace.c \
+					SRCS/ft_swap.c \
+					SRCS/ft_strrev.c \
+					SRCS/ft_power.c \
+					SRCS/ft_factorial.c \
+					SRCS/ft_lstnew.c \
+					SRCS/ft_lstadd.c \
+					SRCS/ft_lstiter.c \
+					SRCS/ft_lstmap.c \
+					SRCS/ft_lstdel.c \
+					SRCS/ft_lstdelone.c \
 
-$(NAME):
-	@gcc -Wall -Werror -Wextra -c $(SRC) -I $(HEADER)
+OBJ =	$(SRC:.c=.o)
+
+INC	=	includes/
+
+FLAGS =	-Wall -Werror -Wextra
+
+all: $(NAME)
+
+$(OBJ): %.o: %.c
+		@gcc $(FLAGS) -o $@ -c $< -I $(INC)
+
+
+$(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "\033[32;1mlibft is ready\033[0m"
@@ -94,3 +102,5 @@ fclean: clean
 	@echo "\033[31m$(NAME) is deleted\033[0m"
 
 re: fclean all
+
+.PHONY: all clean fclean re

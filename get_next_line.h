@@ -21,13 +21,13 @@
 # include <sys/types.h>
 # include <stdio.h>
 
-typedef struct 			s_line
+typedef struct		s_line
 {
-		int				fd;
-		char			*line;
-		struct s_line	*next;
-}						t_line
+	int				fd;
+	char			*line;
+	struct s_line	*next;
+}					t_line;
 
-int						get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 
 #endif
